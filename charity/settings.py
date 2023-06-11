@@ -25,24 +25,36 @@ SECRET_KEY = "t1m$51#g8=9fbqg-+c_4&^d!zmh0yv@!1#&2vms1%ltndz-&t3"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Custom User Model
 AUTH_USER_MODEL = "accounts.User"
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_DEFAULT_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "accounts",
-    "charities",
-    "about_us",
+    "corsheaders",
 ]
+
+THIRD_PARTY_APPS = [
+    "rest_framework",
+    "rest_framework.authtoken",
+]
+
+LOCAL_APPS = [
+    "accounts.apps.AccountsConfig",
+    "charities.apps.CharitiesConfig",
+    "about_us.apps.AboutUsConfig",
+]
+
+INSTALLED_APPS = DJANGO_DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -123,3 +135,12 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+    ],
+}
+
+CORS_ORIGIN_ALLOW_ALL = True

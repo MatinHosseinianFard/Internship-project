@@ -4,6 +4,19 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
+class TaskManager(models.Manager):
+    def related_tasks_to_charity(self, user):
+        return self.filter(charity__user=user)
+
+    def related_tasks_to_benefactor(self, user):
+        return self.filter(assigned_benefactor__user=user)
+
+    def all_related_tasks_to_user(self, user):
+        return self.filter(models.Q(charity__user=user) |
+                           models.Q(assigned_benefactor__user=user) |
+                           models.Q(state='P'))
+
+
 class Benefactor(models.Model):
     EXPERIENCE_CHOICES = (
         (0, 'Beginner'),
@@ -29,6 +42,9 @@ class Charity(models.Model):
 
 
 class Task(models.Model):
+
+    objects = TaskManager()
+
     GENDER_CHOICES = (
         ('M', 'Male'),
         ('F', 'Female'),
