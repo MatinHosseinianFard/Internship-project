@@ -1,0 +1,13 @@
+{% extends "about_us_base.html" %}
+
+{% block team_members %}
+    <h2 class="text-center my-5">نیکوکاران و اعضای خیریه‌ها</h2>
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-around">
+            {% for user in users %}
+                <div>{{ user.get_full_name }}</div>
+            {% endfor %}
+        </div>
+        
+    </div>
+{% endblock %}

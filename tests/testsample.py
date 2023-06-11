@@ -1,5 +1,5 @@
 from django.core.exceptions import ValidationError
-from django.test import TestCase
+from django.test import TestCase, Client
 
 from accounts.admin import UserAdmin
 from accounts.models import User
@@ -65,3 +65,14 @@ class UserAdminTest(TestCase):
         fields = list(UserAdmin.fieldsets[0][1].get('fields'))
         expected_fields = ['username', 'password']
         self.assertListEqual(fields, expected_fields)
+
+
+
+class AboutUsTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+
+    def test_url_works_fine(self):
+        response = self.client.get('/about-us/')
+        self.assertEqual(200, response.status_code, '\nدرخواست مورد نظر به درستی ارسال نمی‌شود و پاسخ درستی را دریافت نمی‌کند.')
+        self.assertContains(response, "نیکوکاران و اعضای خیریه‌ها", msg_prefix='\nصفحه‌ی about_us.html باید شامل عبارت "نیکوکاران و اعضای خیریه‌ها" باشد.')

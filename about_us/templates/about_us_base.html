@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fa">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+    <link href='https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css' rel='stylesheet'
+          type='text/css'>
+
+    <title>About Us</title>
+
+    <style>
+        body {
+            font-family: Vazir, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+            'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+            sans-serif !important;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .section-divider {
+            border-top: 1px solid rgba(34, 36, 38, .15);
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        p {
+            line-height: 2.2em;
+            color: rgb(50, 50, 50)
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body dir="rtl">
+
+<div>
+    {% include "./header.html" %}
+    <section>
+        <div class="p-5 text-center">
+            <h1>درباره ما</h1>
+        </div>
+    </section>
+    <div class="section-divider"></div>
+    <main>
+        <section class="text-right py-5 bg-light">
+            {% include "./about_texts.html" %}
+            <div class="container mx-auto" style="width: 60%">
+                <div class="container">
+                    {% block team_members %}{% endblock %}
+                </div>
+            </div>
+        </section>
+        <div class="section-divider"></div>
+        <section class="text-right">
+            <div class="container mx-auto" style="width: 60%">
+                <h2 class="text-center my-5">محصولات ما</h2>
+                <p>
+                    <b>کوئراکالج (College)</b>
+                    سامانه‌ای برای آموزش تعاملی و آنلاین برنامه‌نویسی است.
+                    در کوئراکالج تمرین‌های عملی، امکان پرسش‌وپاسخ با طراحان دوره و
+                    ادیتور
+                    آنلاین
+                    برای تمرین در کنار یکدیگر قرار گرفته‌اند
+                    تا آموزش آنلاین برنامه‌نویسی در بالاترین سطح ممکن به علاقه‌مندان
+                    ارائه
+                    شود.
+                </p>
+                <p>
+                    <b>سامانه کاریابی برنامه‌نویسی (Careers)</b>
+                    امکان استخدام و جذب توسعه‌دهندگان را در شرکت‌های برتر کشور فراهم
+                    می‌کند.
+                    این سامانه از طرفی با «سیستم مدیریت رزومه» (ATS) فرآیند استخدام را
+                    برای شرکت‌ها آسان می‌کند
+                    و از طرفی با «سیستم مهارت‌سنجی آنلاین» به توسعه‌دهندگان این امکان
+                    را
+                    می‌دهد
+                    که مهارت خود را به شکل بهتری در معرض دید شرکت‌ها قرار دهند.
+                </p>
+                <p>
+                    <b>مسابقات آنلاین برنامه‌نویسی (Contests)</b>
+                    محلی برای چالش و رقابت بین برنامه‌نویسان است.
+                    بسیاری از مسابقات توسط شرکت‌های مطرح IT ایران حمایت می‌شوند
+                    و علاوه بر جایزه، امکان استخدام رقابت‌کنندگان در شرکت حامی نیز
+                    وجود
+                    دارد.
+                </p>
+                <p>
+                    <b>سامانه‌ی کمک آموزشی برنامه‌نویسی (LMS)</b>
+                    اولین بار در دانشگاه صنعتی شریف عرضه شد
+                    و در حال حاضر بیش از ۱۸۰ دانشگاه، موسسه‌ی آموزشی و مدرسه
+                    از این سامانه برای مدیریت آسان‌تر کلاس‌های برنامه‌نویسی خود
+                    استفاده
+                    می‌کنند.
+                </p>
+            </div>
+        </section>
+    </main>
+</div>
+
+</body>
+</html>
